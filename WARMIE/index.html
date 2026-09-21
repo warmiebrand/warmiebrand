@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4DQ86ZBYL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J4DQ86ZBYL');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warmie — Túi chườm thảo dược</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4F3E7;
+    --cream-2:#EDEBDA;
+    --brown:#72432C;
+    --brown-dark:#4E2E1E;
+    --green:#5E9124;
+    --green-soft:#B4D8AD;
+    --tan:#D3BC94;
+    --pink:#D4ACAC;
+    --ink:#3A2A20;
+    --white:#FFFDF8;
+    --radius-sm:10px;
+    --radius-md:18px;
+    --radius-lg:28px;
+    --shadow: 0 8px 24px rgba(78,46,30,0.10);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --cream:#211A14; --cream-2:#2A2119; --white:#2A2119;
+      --ink:#F1E9DE; --brown:#E3B08A; --brown-dark:#F1D9C3;
+      --tan:#4A3B2A; --green-soft:#3A4A2E; --pink:#5A4040;
+    }
+  }
+  :root[data-theme="dark"]{
+    --cream:#211A14; --cream-2:#2A2119; --white:#2A2119;
+    --ink:#F1E9DE; --brown:#E3B08A; --brown-dark:#F1D9C3;
+    --tan:#4A3B2A; --green-soft:#3A4A2E; --pink:#5A4040;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:'Be Vietnam Pro', sans-serif; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.logo-word{ font-family:'Baloo 2', sans-serif; color:var(--brown-dark); margin:0; }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  .container-narrow{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50; background:rgba(244,243,231,0.92);
+    backdrop-filter:blur(8px); border-bottom:1px solid rgba(114,67,44,0.12);
+  }
+  :root[data-theme="dark"] header, @media (prefers-color-scheme: dark){header{background:rgba(33,26,20,0.92);}}
+  .navbar{ display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+  .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .brand img{ width:42px; height:42px; border-radius:50%; }
+  .brand span{ font-size:1.35rem; font-weight:700; color:var(--brown-dark); }
+  nav.pill-nav{ display:flex; gap:4px; background:var(--white); padding:5px; border-radius:999px; box-shadow:var(--shadow); flex-wrap:wrap; }
+  nav.pill-nav button{
+    border:none; background:transparent; padding:9px 16px; border-radius:999px;
+    font-family:'Be Vietnam Pro'; font-size:0.92rem; font-weight:600; color:var(--brown);
+    cursor:pointer; transition:background .2s, color .2s;
+  }
+  nav.pill-nav button.active, nav.pill-nav button:hover{ background:var(--brown); color:var(--white); }
+  .nav-toggle{ display:none; background:var(--brown); color:var(--white); border:none; width:42px; height:42px; border-radius:12px; font-size:1.2rem; cursor:pointer; }
+
+  @media (max-width:860px){
+    nav.pill-nav{
+      display:none; position:absolute; top:64px; left:24px; right:24px;
+      flex-direction:column; align-items:stretch;
+    }
+    nav.pill-nav.open{ display:flex; }
+    nav.pill-nav button{ text-align:left; }
+    .nav-toggle{ display:block; }
+  }
+
+  /* SECTIONS */
+  .page{ display:none; animation:fadeIn .35s ease; }
+  .page.active{ display:block; }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  section{ padding:64px 0; }
+  .section-alt{ background:var(--white); }
+  .eyebrow{ color:var(--green); font-weight:700; font-size:0.95rem; margin-bottom:6px; display:block; }
+  .lede{ font-size:1.1rem; max-width:60ch; color:var(--ink); opacity:0.85; }
+
+  /* HERO */
+  .hero{ padding:72px 0 56px; }
+  .hero .wrap{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center; }
+  .hero h1{ font-size:2.7rem; line-height:1.15; margin-bottom:18px; }
+  .hero-badge{ display:inline-block; background:var(--tan); color:var(--brown-dark); padding:6px 14px; border-radius:999px; font-weight:600; font-size:0.85rem; margin-bottom:16px; }
+  .hero-art{
+    display:flex; align-items:center; justify-content:center; position:relative;
+  }
+  .hero-art img{ width:260px; height:auto; border-radius:50%; }
+  .hero-actions{ display:flex; gap:14px; margin-top:26px; flex-wrap:wrap; }
+
+  .btn{
+    display:inline-block; padding:13px 26px; border-radius:999px; font-weight:700;
+    text-decoration:none; cursor:pointer; border:2px solid transparent; font-size:0.98rem;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--brown); color:var(--white); box-shadow:var(--shadow); }
+  .btn-outline{ background:transparent; border-color:var(--brown); color:var(--brown-dark); }
+
+  /* FEATURE GRID */
+  .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:36px; }
+  .grid-2{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:36px; }
+  @media (max-width:760px){ .grid-3, .grid-2{ grid-template-columns:1fr; } .hero .wrap{ grid-template-columns:1fr; } }
+
+  .card{ background:var(--white); border-radius:var(--radius-md); padding:28px; box-shadow:var(--shadow); }
+  .feature-icon{
+    width:52px; height:52px; border-radius:14px; background:var(--green-soft);
+    display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:16px;
+  }
+
+  /* PRODUCTS */
+  .product-card{ background:var(--white); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow); }
+  .product-thumb{
+    background:var(--green-soft); height:150px; display:flex; align-items:center; justify-content:center; font-size:3rem;
+  }
+  .product-body{ padding:20px; }
+  .price{ color:var(--green); font-weight:700; margin-top:8px; }
+  .tag{ display:inline-block; background:var(--pink); color:var(--brown-dark); font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:999px; margin-bottom:10px; }
+
+  /* NEWS / BLOG */
+  .post-card{ background:var(--white); border-radius:var(--radius-md); box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; }
+  .post-thumb{ height:130px; background:var(--tan); display:flex; align-items:center; justify-content:center; font-size:2.2rem; }
+  .post-body{ padding:20px; flex:1; display:flex; flex-direction:column; }
+  .post-date{ font-size:0.8rem; color:var(--green); font-weight:700; margin-bottom:6px; }
+  .post-more{ margin-top:auto; font-weight:700; color:var(--brown); text-decoration:none; cursor:pointer; }
+
+  /* CONTACT */
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:36px; }
+  @media (max-width:760px){ .contact-grid{ grid-template-columns:1fr; } }
+  .field{ margin-bottom:16px; }
+  .field label{ display:block; font-weight:600; margin-bottom:6px; font-size:0.92rem; }
+  .field input, .field textarea{
+    width:100%; padding:12px 14px; border-radius:var(--radius-sm); border:1.5px solid var(--tan);
+    background:var(--white); color:var(--ink); font-family:inherit; font-size:0.96rem;
+  }
+  .field textarea{ resize:vertical; min-height:110px; }
+  .contact-info-item{ display:flex; gap:12px; margin-bottom:18px; align-items:flex-start; }
+  .contact-icon{ width:38px; height:38px; border-radius:10px; background:var(--green-soft); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+
+  /* CART */
+  .cart-btn{
+    position:relative; background:var(--white); border:none; width:44px; height:44px;
+    border-radius:50%; box-shadow:var(--shadow); cursor:pointer; font-size:1.2rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .cart-badge{
+    position:absolute; top:-4px; right:-4px; background:var(--brown); color:var(--white);
+    font-size:0.68rem; font-weight:700; border-radius:999px; min-width:18px; height:18px;
+    display:flex; align-items:center; justify-content:center; padding:0 4px;
+  }
+  .add-cart-btn{
+    margin-top:12px; width:100%; border:2px solid var(--brown); background:transparent;
+    color:var(--brown-dark); font-family:'Be Vietnam Pro'; font-weight:700; padding:9px;
+    border-radius:999px; cursor:pointer; transition:background .15s, color .15s;
+  }
+  .add-cart-btn:hover{ background:var(--brown); color:var(--white); }
+  .add-cart-btn.added{ background:var(--green); border-color:var(--green); color:var(--white); }
+
+  .overlay{ position:fixed; inset:0; background:rgba(58,42,32,0.35); z-index:90; opacity:0; pointer-events:none; transition:opacity .2s; }
+  .overlay.open{ opacity:1; pointer-events:auto; }
+
+  .drawer{
+    position:fixed; top:0; right:0; height:100%; width:380px; max-width:90vw; background:var(--cream);
+    z-index:100; box-shadow:-8px 0 30px rgba(0,0,0,0.15); transform:translateX(100%);
+    transition:transform .25s ease; display:flex; flex-direction:column;
+  }
+  .drawer.open{ transform:translateX(0); }
+  .drawer-head{ display:flex; justify-content:space-between; align-items:center; padding:20px; border-bottom:1px solid rgba(114,67,44,0.15); }
+  .drawer-close{ background:none; border:none; font-size:1.3rem; cursor:pointer; color:var(--brown-dark); }
+  .drawer-body{ flex:1; overflow-y:auto; padding:20px; }
+  .cart-item{ display:flex; gap:12px; align-items:center; margin-bottom:16px; }
+  .cart-item-thumb{ width:52px; height:52px; border-radius:12px; background:var(--tan); display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0; }
+  .cart-item-info{ flex:1; }
+  .cart-item-info h4{ font-size:0.95rem; margin-bottom:4px; }
+  .qty-control{ display:flex; align-items:center; gap:8px; margin-top:6px; }
+  .qty-control button{ width:24px; height:24px; border-radius:50%; border:1px solid var(--brown); background:var(--white); cursor:pointer; font-weight:700; color:var(--brown-dark); line-height:1; }
+  .remove-item{ background:none; border:none; color:var(--pink); cursor:pointer; font-size:1.1rem; }
+  .drawer-foot{ padding:20px; border-top:1px solid rgba(114,67,44,0.15); }
+  .cart-total{ display:flex; justify-content:space-between; font-weight:700; margin-bottom:14px; font-size:1.05rem; }
+  .empty-cart{ text-align:center; opacity:0.7; padding:40px 0; }
+
+  /* CHATBOT */
+  .chat-fab{
+    position:fixed; bottom:24px; right:24px; width:58px; height:58px; border-radius:50%;
+    background:var(--brown); color:var(--white); border:none; font-size:1.5rem; cursor:pointer;
+    box-shadow:0 8px 24px rgba(78,46,30,0.3); z-index:95; display:flex; align-items:center; justify-content:center;
+  }
+  .chat-window{
+    position:fixed; bottom:96px; right:24px; width:340px; max-width:88vw; height:460px; max-height:70vh;
+    background:var(--white); border-radius:var(--radius-md); box-shadow:0 12px 40px rgba(0,0,0,0.2);
+    z-index:96; display:none; flex-direction:column; overflow:hidden;
+  }
+  .chat-window.open{ display:flex; }
+  .chat-head{ background:var(--brown); color:var(--white); padding:14px 18px; display:flex; justify-content:space-between; align-items:center; }
+  .chat-head strong{ font-family:'Baloo 2'; }
+  .chat-head button{ background:none; border:none; color:var(--white); font-size:1.1rem; cursor:pointer; }
+  .chat-body{ flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; }
+  .msg{ max-width:80%; padding:10px 14px; border-radius:16px; font-size:0.9rem; line-height:1.45; }
+  .msg.bot{ background:var(--cream-2); align-self:flex-start; border-bottom-left-radius:4px; }
+  .msg.user{ background:var(--brown); color:var(--white); align-self:flex-end; border-bottom-right-radius:4px; }
+  .chat-input-row{ display:flex; gap:8px; padding:12px; border-top:1px solid rgba(114,67,44,0.12); }
+  .chat-input-row input{ flex:1; border:1.5px solid var(--tan); border-radius:999px; padding:9px 14px; font-family:inherit; background:var(--cream); color:var(--ink); }
+  .chat-input-row button{ background:var(--brown); color:var(--white); border:none; width:38px; height:38px; border-radius:50%; cursor:pointer; }
+
+  /* FOOTER */
+  .warmie-footer {
+      background-color: #2e3b2a;
+      color: #f7f5f0;
+      padding: 40px 20px;
+      margin-top: 60px;
+      font-family: inherit;
+  }
+  .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+  }
+  .footer-col h3 {
+      color: #ffffff;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #d99b73;
+      display: inline-block;
+      padding-bottom: 5px;
+  }
+  .footer-col p {
+      margin-bottom: 10px;
+      line-height: 1.6;
+      font-size: 0.95rem;
+  }
+  .custom-social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+      align-items: center;
+  }
+  .custom-social-links a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 42px;
+      height: 42px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      padding: 8px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  .custom-social-links a:hover {
+      transform: translateY(-4px);
+      background-color: #f2e9e1;
+  }
+  .custom-social-links img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap navbar">
+    <a class="brand" href="#" data-nav="home">
+      <img src="Screenshot_2026-09-17_230220-removebg-preview (1).png" alt="Warmie Logo">
+      <span>Warmie</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Mở menu">☰</button>
+    <nav class="pill-nav" id="pillNav">
+      <button data-nav="home" class="active">Trang chủ</button>
+      <button data-nav="about">Giới thiệu</button>
+      <button data-nav="products">Sản phẩm</button>
+      <button data-nav="news">Tin tức</button>
+      <button data-nav="blog">Blog</button>
+      <button data-nav="careers">Tuyển dụng</button>
+      <button data-nav="contact">Liên hệ</button>
+    </nav>
+    <button class="cart-btn" id="cartOpenBtn" aria-label="Giỏ hàng">🛒<span class="cart-badge" id="cartBadge" style="display:none;">0</span></button>
+  </div>
+</header>
+
+<div class="overlay" id="cartOverlay"></div>
+<div class="drawer" id="cartDrawer">
+  <div class="drawer-head">
+    <h3>Giỏ hàng của bạn</h3>
+    <button class="drawer-close" id="cartCloseBtn">✕</button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot">
+    <div class="cart-total"><span>Tổng cộng</span><span id="cartTotal">0đ</span></div>
+    <button class="btn btn-primary" style="width:100%; border:none;" id="checkoutBtn">Đặt hàng</button>
+  </div>
+</div>
+
+<button class="chat-fab" id="chatOpenBtn" aria-label="Chat với Warmie">💬</button>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-head">
+    <strong>Warmie Bot 🌿</strong>
+    <button id="chatCloseBtn">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="msg bot">Chào bạn! Mình là trợ lý của Warmie 🌿 Bạn cần hỏi gì về túi chườm thảo dược không?</div>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" id="chatInput" placeholder="Nhập câu hỏi...">
+    <button id="chatSendBtn">➤</button>
+  </div>
+</div>
+
+<main>
+  <!-- HOME -->
+  <div class="page active" id="page-home">
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <span class="hero-badge">100% thảo dược tự nhiên</span>
+          <h1>Bạn khó chịu ở đâu – Tôi xoa dịu ở đó</h1>
+          <p class="lede">Warmie làm túi chườm thảo dược thủ công, giúp bạn xoa dịu những cơn đau mỏi vai gáy, bụng kinh, hay đơn giản là một buổi tối cần thư giãn.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" data-nav="products">Xem sản phẩm</a>
+            <a class="btn btn-outline" data-nav="about">Câu chuyện Warmie</a>
+          </div>
+        </div>
+        <div class="hero-art" style="background: transparent; padding: 0;">
+          <img src="Screenshot_2026-09-17_230220-removebg-preview (1).png" alt="Warmie Logo" style="width: 260px; height: auto;">
+        </div>
+      </div>
+    </section>
+
+    <section class="section-alt">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Vì sao chọn Warmie</span>
+          <h2>Chăm sóc cơ thể, theo cách chậm rãi hơn</h2>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <div class="feature-icon">🌿</div>
+            <h3>Thảo dược thật</h3>
+            <p>Ngải cứu, gừng, hoa oải hương... được chọn lọc kỹ, sấy khô tự nhiên, không hóa chất bảo quản.</p>
+          </div>
+          <div class="card">
+            <div class="feature-icon">🧵</div>
+            <h3>May thủ công</h3>
+            <p>Từng đường kim mũi chỉ đều được may tại xưởng nhỏ, kiểm tra kỹ trước khi đến tay bạn.</p>
+          </div>
+          <div class="card">
+            <div class="feature-icon">♻️</div>
+            <h3>Dùng lại nhiều lần</h3>
+            <p>Chỉ cần quay lò vi sóng vài phút, túi chườm có thể dùng đi dùng lại hàng trăm lần.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Sản phẩm nổi bật</span>
+          <h2>Được yêu thích nhất</h2>
+        </div>
+        <div class="grid-3">
+          <div class="product-card">
+            <div class="product-thumb">
+              <img src="tui-chuom-co-vai-gay.png" alt="Túi chườm cổ vai gáy" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="product-body">
+              <span class="tag">Bán chạy</span>
+              <h3>Túi chườm cổ vai gáy</h3>
+              <p>Giảm mỏi cổ, vai sau ngày dài làm việc.</p>
+              <div class="price">129.000đ</div>
+              <button class="add-cart-btn" data-id="co-vai-gay" data-name="Túi chườm cổ vai gáy" data-price="129000" data-emoji="🌿">Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-thumb">
+              <img src="tui-chuom-bung-mochi.png" alt="Túi chườm bụng Bé Hạt Mochi" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="product-body">
+              <span class="tag">Cho ngày "đèn đỏ"</span>
+              <h3>Túi chườm bụng "Bé Hạt Mochi"</h3>
+              <p>Dịu cơn đau bụng kinh, ấm áp và nhẹ nhàng.</p>
+              <div class="price">99.000đ</div>
+              <button class="add-cart-btn" data-id="mochi" data-name="Túi chườm bụng Bé Hạt Mochi" data-price="99000" data-emoji="🌸">Thêm vào giỏ</button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-thumb">
+              <img src="set-thao-duoc-hon-hop.png" alt="Set nguyên liệu thảo dược hỗn hợp" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="product-body">
+              <span class="tag">Nguyên liệu</span>
+              <h3>Set nguyên liệu thảo dược hỗn hợp</h3>
+              <p>Trộn hỗn hợp ngải cứu, gừng, hoa hồi tự nhiên.</p>
+              <div class="price">79.000đ</div>
+              <button class="add-cart-btn" data-id="set-thao-duoc" data-name="Set nguyên liệu thảo dược" data-price="79000" data-emoji="🍃">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="page" id="page-about">
+    <section>
+      <div class="wrap">
+        <span class="eyebrow">Giới thiệu</span>
+        <h2 style="font-size:2.1rem; margin-bottom:14px;">Câu chuyện của Warmie</h2>
+        <p class="lede">Warmie bắt đầu từ một chiếc túi chườm gừng mẹ tự may cho những ngày trở trời. Chúng tôi tin rằng sự chăm sóc tốt nhất không đến từ máy móc hiện đại, mà từ những nguyên liệu quen thuộc — gừng, ngải cứu, muối hột — được đặt đúng chỗ, đúng lúc.</p>
+      </div>
+    </section>
+
+    <section class="section-alt">
+      <div class="wrap grid-2">
+        <div class="card">
+          <h3>Sứ mệnh</h3>
+          <p>Mang giải pháp chăm sóc sức khỏe tự nhiên, an toàn và dễ tiếp cận đến với mọi gia đình Việt, thay thế dần các phương pháp giảm đau phụ thuộc thuốc.</p>
+        </div>
+        <div class="card">
+          <h3>Tầm nhìn</h3>
+          <p>Trở thành thương hiệu túi chườm thảo dược được tin dùng hàng đầu, đồng hành cùng người Việt trong việc chăm sóc bản thân mỗi ngày.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="page" id="page-products">
+    <section>
+      <div class="wrap">
+        <span class="eyebrow">Sản phẩm</span>
+        <h2 style="font-size:2.1rem; margin-bottom:8px;">Bộ sưu tập túi chườm Warmie</h2>
+        <p class="lede">Mỗi sản phẩm được thiết kế cho một nhu cầu cụ thể — chọn đúng loại, hiệu quả sẽ khác biệt rõ rệt.</p>
+
+        <div class="grid-3">
+          <div class="card">
+            <div style="width: 100%; height: 200px; overflow: hidden; border-radius: var(--radius-sm); margin-bottom: 16px;">
+              <img src="tui-chuom-co-vai-gay.png" alt="Túi chườm cổ vai gáy" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <h3>Túi chườm cổ vai gáy</h3>
+            <p>Thảo dược: ngải cứu, gừng, hạt đắc khô.</p>
+            <div style="font-size: 1.25rem; font-weight: bold; color: var(--green); margin: 12px 0;">129.000đ</div>
+            <button class="add-cart-btn" data-id="co-vai-gay" data-name="Túi chườm cổ vai gáy" data-price="129000" data-emoji="🌿">Thêm vào giỏ</button>
+          </div>
+
+          <div class="card">
+            <div style="width: 100%; height: 200px; overflow: hidden; border-radius: var(--radius-sm); margin-bottom: 16px;">
+              <img src="tui-chuom-bung-mochi.png" alt="Túi chườm bụng Bé Hạt Mochi" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <h3>Túi chườm bụng</h3>
+            <p>Thảo dược: gừng, quế, muối hột rang.</p>
+            <div style="font-size: 1.25rem; font-weight: bold; color: var(--green); margin: 12px 0;">99.000đ</div>
+            <button class="add-cart-btn" data-id="mochi" data-name="Túi chườm bụng Bé Hạt Mochi" data-price="99000" data-emoji="🌸">Thêm vào giỏ</button>
+          </div>
+
+          <div class="card">
+            <div style="width: 100%; height: 200px; overflow: hidden; border-radius: var(--radius-sm); margin-bottom: 16px;">
+              <img src="túi chườm bao tử.png" alt="Túi chườm bao tử" style="width: 100%; height: 100%; object-fit: contain; background: #fdfbf7;">
+            </div>
+            <h3>Túi chườm bao tử</h3>
+            <p>Thiết kế đai đeo giữ ấm liên tục cho vùng bụng.</p>
+            <div style="font-size: 1.25rem; font-weight: bold; color: var(--green); margin: 12px 0;">159.000đ</div>
+            <button class="add-cart-btn" data-id="bao-tu" data-name="Túi chườm bao tử" data-price="159000" data-emoji="🍵">Thêm vào giỏ</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- NEWS -->
+  <div class="page" id="page-news">
+    <section>
+      <div class="wrap">
+        <span class="eyebrow">Tin tức</span>
+        <h2 style="font-size:2.1rem; margin-bottom:8px;">Cập nhật từ Warmie</h2>
+        <div class="grid-3">
+          
+          <div class="post-card">
+            <div class="post-thumb">🎉</div>
+            <div class="post-body">
+              <div class="post-date">20/09/2026</div>
+              <h3>🌿 WARMIE CHÍNH THỨC THÔNG BÁO KHAI TRƯƠNG</h3>
+              <p>Warmie chính thức mở cửa! 🤎 Mang đến những phút giây ấm áp, thư giãn và chương trình quà tặng đặc biệt nhân dịp ra mắt...</p>
+              <a href="#" class="post-more" data-nav="post-detail">Xem bài viết →</a>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-thumb">📰</div>
+            <div class="post-body">
+              <div class="post-date">Kenh14 • 15/09/2026</div>
+              <h3>Gừng, Ngải cứu, Sả: Những loại thảo mộc giúp túi chườm nóng thành spa tại gia</h3>
+              <p>Một chiếc túi chườm ấm chứa thảo mộc không chỉ mang lại hơi ấm mà còn cả hương thơm và trải nghiệm thư giãn...</p>
+              <a href="#" class="post-more" data-nav="news-kenh14">Xem bài viết →</a>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-thumb">📦</div>
+            <div class="post-body">
+              <div class="post-date">10/09/2026</div>
+              <h3>Warmie ra mắt combo quà tặng mới</h3>
+              <p>Bộ 3 túi chườm mini đóng hộp kraft, phù hợp làm quà tặng dịp cuối năm.</p>
+              <span class="post-more">Xem thêm →</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- TRANG RIÊNG: KHAI TRƯƠNG -->
+  <div class="page" id="page-post-detail">
+    <section>
+      <div class="wrap container-narrow">
+        <button class="btn btn-outline" data-nav="news" style="margin-bottom: 24px; padding: 8px 18px; font-size: 0.9rem;">
+          ← Quay lại Tin tức
+        </button>
+        
+        <span class="eyebrow">21 Tháng 9, 2026</span>
+        <h1 style="font-size: 2.1rem; margin-bottom: 20px;">🌿 WARMIE CHÍNH THỨC THÔNG BÁO KHAI TRƯƠNG</h1>
+        <img src="Set qua.jpg" alt="Mô tả cho hình ảnh" style="max-width:100%; border-radius:18px;">
+        <div class="card" style="padding: 32px; line-height: 1.8;">
+          <p style="font-size: 1.1rem;"><strong>Warmie chính thức mở cửa! 🤎</strong></p>
+          <p>Warmie là thương hiệu túi chườm thảo mộc được tạo nên với mong muốn mang đến những phút giây ấm áp, thư giãn và dễ chịu trong cuộc sống hằng ngày.</p>
+          <p>Dù là sau những giờ học tập và làm việc căng thẳng, những ngày cơ thể cần được nghỉ ngơi hay đơn giản là lúc bạn muốn dành một chút thời gian chăm sóc bản thân, Warmie mong muốn trở thành một người bạn nhỏ luôn đồng hành cùng bạn.</p>
+          
+          <hr style="margin: 24px 0; border: none; border-top: 1px dashed var(--tan);">
+          
+          <h3 style="color: var(--brown); margin-bottom: 12px;">🎁 QUÀ TẶNG ĐẶC BIỆT NHÂN DỊP KHAI TRƯƠNG</h3>
+          <p>Để đánh dấu cột mốc đầu tiên của Warmie, chúng mình dành tặng một số phần quà đặc biệt đến những khách hàng may mắn.</p>
+          
+          <p><strong>Mỗi phần quà bao gồm:</strong></p>
+          <ul style="padding-left: 20px; margin: 12px 0;">
+            <li>🌿 Túi chườm Mochi + túi rút</li>
+            <li>🌿 Túi chườm Bao Tử + túi rút</li>
+          </ul>
+          
+          <p>Số lượng quà tặng có giới hạn, vì vậy đừng bỏ lỡ cơ hội trở thành một trong những người đầu tiên nhận được bộ sản phẩm từ Warmie nhé!</p>
+          
+          <div style="background: var(--cream-2); padding: 20px; border-radius: var(--radius-md); margin-top: 24px;">
+            <p style="margin: 6px 0;">🗓️ <strong>THỜI GIAN ĐĂNG KÝ:</strong> 21/09/2026 – 22/09/2026</p>
+            <p style="margin: 6px 0;">🎉 <strong>THỜI GIAN CÔNG BỐ KẾT QUẢ:</strong> 23/09/2026</p>
+            <p style="margin: 12px 0 0 0;">
+              🎁 <strong>ĐĂNG KÝ NHẬN QUÀ:</strong> 
+              <a href="https://forms.gle/YwrdZPVFB1Ar9m2D7" target="_blank" style="color: var(--brown); font-weight: bold; text-decoration: underline;">
+                Nhấn vào đây để đăng ký Form
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- TRANG RIÊNG: KENH14 -->
+  <div class="page" id="page-news-kenh14">
+    <section>
+      <div class="wrap container-narrow">
+        <button class="btn btn-outline" data-nav="news" style="margin-bottom: 24px; padding: 8px 18px; font-size: 0.9rem;">
+          ← Quay lại Tin tức
+        </button>
+        
+        <span class="eyebrow">Theo Kenh14 • 15/09/2026</span>
+        <h1 style="font-size: 2rem; margin-bottom: 20px; line-height: 1.3;">Kenh14 – Gừng, Ngải cứu, Sả: Những loại thảo mộc giúp túi chườm nóng đơn giản thành trải nghiệm spa tại gia.</h1>
+        
+        <div class="card" style="padding: 32px; line-height: 1.8;">
+          <p style="font-size: 1.1rem; font-weight: 600; color: var(--brown-dark);">
+            Một chiếc túi chườm ấm mang lại cảm giác dễ chịu. Nhưng một chiếc túi chườm chứa thảo mộc không chỉ mang lại hơi ấm mà còn cả hương thơm, những câu chuyện và bề dày truyền thống. Hãy cùng tìm hiểu về các loại thảo mộc này, công dụng của chúng và cách sử dụng túi chườm đúng cách.
+          </p>
+
+          <p>Đã 3 giờ chiều. Máy lạnh văn phòng bật mức lạnh buốt, đôi vai bạn co rúm lại sát mang tai, và điều duy nhất bạn muốn lúc này là chút hơi ấm. Hơi ấm là một trong những liệu pháp thư giãn lâu đời nhất; tại nhiều gia đình châu Á, hơi ấm thường đi kèm với thảo mộc: những túi đựng lá, rễ và hoa khô được làm nóng để chườm lên vùng cổ mỏi mệt, lưng đau nhức hay đôi bàn tay lạnh giá. Ngày nay, truyền thống đó đã khoác lên mình diện mạo hiện đại và gọn gàng hơn: túi chườm nóng thảo mộc.</p>
+
+          <h3 style="color: var(--green); margin-top: 24px; margin-bottom: 8px;">Túi chườm nóng thảo mộc là gì?</h3>
+          <p>Túi chườm nóng thảo mộc là loại túi vải mềm chứa đầy thảo mộc khô, thường được trộn cùng các loại hạt có khả năng giữ nhiệt. Khi được làm nóng (hầu hết các loại túi này dùng được trong lò vi sóng), túi sẽ tỏa ra hơi ấm dịu nhẹ, ổn định hòa quyện cùng hương thơm tự nhiên của các thành phần bên trong.</p>
+
+          <div style="text-align: center; margin: 24px 0;">
+            <img src="tui-chuom-bung-mochi.png" alt="Túi chườm cổ Bé Hạt Mochi Warmie" style="max-width: 380px; width: 100%; border-radius: var(--radius-md); margin: 0 auto; display: block; box-shadow: var(--shadow);">
+            <small style="display: block; margin-top: 8px; color: var(--brown); font-style: italic;">Túi chườm thảo dược Bé Hạt Mochi Warmie</small>
+          </div>
+
+          <h3 style="color: var(--green); margin-top: 28px; margin-bottom: 12px;">Các loại thảo mộc bên trong và công dụng của từng loại</h3>
+          
+          <p><strong>Ngải cứu (Mugwort)</strong><br>
+          Mang lại cảm giác ấm áp, mộc mạc và thoáng chút hương khói. Đây là loại thảo mộc quen thuộc trong việc chăm sóc sức khỏe tại gia ở Việt Nam và Đông Á, gắn liền với truyền thống giữ ấm cơ thể trong những ngày lạnh giá cũng như làm dịu vùng thắt lưng và bụng.</p>
+
+          <p><strong>Gừng (Ginger)</strong><br>
+          Loại củ kinh điển giúp làm ấm cơ thể. Hương thơm cay nồng, ấm áp của gừng rất hợp với những buổi tối se lạnh, đồng thời nó cũng có lịch sử lâu đời trong các liệu pháp chườm nóng truyền thống.</p>
+
+          <p><strong>Sả (Lemongrass)</strong><br>
+          Mang lại cảm giác tươi mới, sảng khoái với hương thơm thanh mát tựa như các loại quả họ cam chanh. Đây là nốt hương thanh khiết, giúp cân bằng để hỗn hợp thảo mộc không bị quá nồng hay nặng mùi.</p>
+
+          <p style="background: var(--cream-2); padding: 12px 16px; border-radius: var(--radius-sm); font-size: 0.95rem; margin: 20px 0;">
+            📌 <em>Hãy kiểm tra kỹ các loại thảo mộc trong sản phẩm của bạn và đọc nhãn hướng dẫn trước khi sử dụng.</em>
+          </p>
+
+          <h3 style="color: var(--green); margin-top: 28px; margin-bottom: 12px;">Công dụng:</h3>
+          <ul style="padding-left: 20px; margin-bottom: 20px;">
+            <li style="margin-bottom: 10px;"><strong>Hơi ấm ổn định, dễ chịu:</strong> Bên trong gồm ngũ cốc và thảo mộc giữ nhiệt dịu nhẹ và tự điều chỉnh hình dáng để ôm sát vùng cổ, vai hoặc thắt lưng của bạn.</li>
+            <li style="margin-bottom: 10px;"><strong>Giúp thư giãn cơ bắp:</strong> Hơi ấm giúp các cơ đang căng cứng được thả lỏng; đó là lý do tại sao liệu pháp nhiệt thường được lựa chọn sau nhiều giờ làm việc tại bàn.</li>
+            <li style="margin-bottom: 10px;"><strong>Khoảng lặng thư giãn:</strong> Sự kết hợp giữa hơi ấm và hương thơm tự nhiên là tín hiệu đơn giản để bạn sống chậm lại, hít thở sâu và tạm gác lại mọi lo toan trong vài phút.</li>
+          </ul>
+
+          <p>Có thể tái sử dụng và không vướng víu dây điện. Chỉ cần làm nóng, sử dụng, để nguội rồi lặp lại quy trình; sản phẩm không dùng pin hay dây cắm điện.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- BLOG -->
+  <div class="page" id="page-blog">
+    <section>
+      <div class="wrap">
+        <span class="eyebrow">Blog</span>
+        <h2 style="font-size:2.1rem; margin-bottom:8px;">Kiến thức chăm sóc sức khỏe</h2>
+        <div class="grid-3">
+          <div class="post-card">
+            <div class="post-thumb">🌿</div>
+            <div class="post-body">
+              <div class="post-date">Sức khỏe</div>
+              <h3>5 loại thảo dược tốt cho giấc ngủ</h3>
+              <p>Hoa oải hương, hoa cúc, và những nguyên liệu quen thuộc giúp bạn ngủ ngon hơn.</p>
+              <span class="post-more">Đọc bài viết →</span>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-thumb">💆</div>
+            <div class="post-body">
+              <div class="post-date">Mẹo hay</div>
+              <h3>Cách chườm đúng cách khi đau vai gáy</h3>
+              <p>Nhiệt độ, thời gian và tư thế chườm phù hợp để đạt hiệu quả tốt nhất.</p>
+              <span class="post-more">Đọc bài viết →</span>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-thumb">🩷</div>
+            <div class="post-body">
+              <div class="post-date">Phụ nữ</div>
+              <h3>Giảm đau bụng kinh không cần thuốc</h3>
+              <p>Những phương pháp tự nhiên giúp những ngày "đèn đỏ" nhẹ nhàng hơn.</p>
+              <span class="post-more">Đọc bài viết →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CAREERS -->
+  <div class="page" id="page-careers">
+    <section>
+      <div class="wrap">
+        <span class="eyebrow">Tuyển dụng</span>
+        <h2 style="font-size:2.1rem; margin-bottom:8px;">Cùng Warmie lớn lên mỗi ngày</h2>
+        <p class="lede">Chúng tôi tìm kiếm những người tin vào giá trị của sự chăm sóc tự nhiên và muốn cùng xây dựng một thương hiệu tử tế.</p>
+
+        <div style="margin-top:32px;">
+          <div class="job-card">
+            <div>
+              <h3>Nhân viên may thủ công</h3>
+              <div class="job-meta">Toàn thời gian · Tại xưởng</div>
+            </div>
+            <a class="btn btn-outline" data-nav="contact">Ứng tuyển</a>
+          </div>
+          <div class="job-card">
+            <div>
+              <h3>Nhân viên vận hành gian hàng online</h3>
+              <div class="job-meta">Toàn thời gian · Làm việc từ xa</div>
+            </div>
+            <a class="btn btn-outline" data-nav="contact">Ứng tuyển</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="page" id="page-contact">
+    <section>
+      <div class="wrap">
+        <span class="eyebrow">Liên hệ</span>
+        <h2 style="font-size:2.1rem; margin-bottom:8px;">Warmie luôn sẵn sàng lắng nghe</h2>
+        <div class="contact-grid">
+          <div>
+            <div class="contact-info-item">
+              <div class="contact-icon">📍</div>
+              <div><strong>Địa chỉ</strong><br>Trụ sở chính 56 Võ Thành Trang, Phường Bảy Hiền, Thành Phố Hồ Chí Minh</div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-icon">📞</div>
+              <div><strong>Điện thoại</strong><br>+84 333 444 555</div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-icon">✉️</div>
+              <div><strong>Email</strong><br>warmiebrand@gmail.com</div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-icon">🕒</div>
+              <div><strong>Giờ làm việc</strong><br>8:00 – 18:00, Thứ 2 – Thứ 7</div>
+            </div>
+          </div>
+          <form onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã liên hệ với Warmie!');">
+            <div class="field">
+              <label>Họ và tên</label>
+              <input type="text" placeholder="Nguyễn Văn A" required>
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input type="email" placeholder="ban@email.com" required>
+            </div>
+            <div class="field">
+              <label>Lời nhắn</label>
+              <textarea placeholder="Bạn muốn hỏi Warmie điều gì?" required></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" style="border:none;">Gửi liên hệ</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="warmie-footer">
+  <div class="footer-container">
+      <div class="footer-col">
+          <h3>Liên Hệ Với Warmie</h3>
+          <p><strong>Địa chỉ:</strong> Trụ sở chính 56 Võ Thành Trang, Phường Bảy Hiền, Thành Phố Hồ Chí Minh</p>
+          <p><strong>Email:</strong> warmiebrand@gmail.com</p>
+          <p><strong>Hotline:</strong> +84 333 444 555</p>
+      </div>
+
+      <div class="footer-col">
+          <h3>Kết Nối Với Chúng Tôi</h3>
+          <p>Theo dõi Warmie qua các kênh chính thức:</p>
+          
+          <div class="custom-social-links">
+              <a href="https://www.facebook.com/share/14pQ5tQZ72v/?mibextid=wwXIfr" target="_blank" title="Facebook Warmie">
+                  <img src="icon-facebook.png" alt="Facebook Warmie">
+              </a>
+              <a href="https://www.instagram.com/warmiebrand_?stkn=MW50ZHhhNXpnYjhqcA%3D%3D&utm_source=qr" target="_blank" title="Instagram Warmie">
+                  <img src="icon-instagram.png" alt="Instagram Warmie">
+              </a>
+              <a href="https://www.tiktok.com/@warmiebrand_" target="_blank" title="TikTok Warmie">
+                  <img src="icon-tiktok.png" alt="TikTok Warmie">
+              </a>
+              <a href="mailto:warmiebrand@gmail.com" title="Gửi Email cho Warmie">
+                  <img src="icon-email.png" alt="Email Warmie">
+              </a>
+          </div>
+      </div>
+  </div>
+</footer>
+
+<script>
+  // NAVIGATION
+  function goTo(page){
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    
+    const targetPage = document.getElementById('page-' + page);
+    if(targetPage) targetPage.classList.add('active');
+    
+    document.querySelectorAll('.pill-nav button').forEach(b => b.classList.toggle('active', b.dataset.nav === page));
+    document.getElementById('pillNav').classList.remove('open');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  document.addEventListener('click', (e) => {
+    const navEl = e.target.closest('[data-nav]');
+    if(navEl) {
+      e.preventDefault();
+      goTo(navEl.dataset.nav);
+    }
+  });
+
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('pillNav').classList.toggle('open');
+  });
+
+  // GIỎ HÀNG
+  let cart = [];
+  try{ cart = JSON.parse(localStorage.getItem('warmie_cart') || '[]'); }catch(e){ cart = []; }
+
+  function saveCart(){
+    try{ localStorage.setItem('warmie_cart', JSON.stringify(cart)); }catch(e){}
+    renderCart();
+  }
+  function fmtPrice(n){ return n.toLocaleString('vi-VN') + 'đ'; }
+
+  function renderCart(){
+    const totalQty = cart.reduce((s,i)=>s+i.qty,0);
+    const badge = document.getElementById('cartBadge');
+    badge.textContent = totalQty;
+    badge.style.display = totalQty > 0 ? 'flex' : 'none';
+
+    const body = document.getElementById('cartBody');
+    if(cart.length === 0){
+      body.innerHTML = '<div class="empty-cart">Giỏ hàng đang trống 🌿<br>Hãy chọn vài túi chườm nhé!</div>';
+    } else {
+      body.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <div class="cart-item-thumb">${item.emoji || '🌿'}</div>
+          <div class="cart-item-info">
+            <h4>${item.name}</h4>
+            <div>${fmtPrice(item.price)}</div>
+            <div class="qty-control">
+              <button onclick="cartChangeQty('${item.id}', -1)">−</button>
+              <span>${item.qty}</span>
+              <button onclick="cartChangeQty('${item.id}', 1)">+</button>
+            </div>
+          </div>
+          <button class="remove-item" onclick="cartRemove('${item.id}')">✕</button>
+        </div>
+      `).join('');
+    }
+    const total = cart.reduce((s,i)=>s+i.qty*i.price, 0);
+    document.getElementById('cartTotal').textContent = fmtPrice(total);
+  }
+
+  window.cartChangeQty = function(id, delta){
+    const item = cart.find(i => i.id === id);
+    if(!item) return;
+    item.qty += delta;
+    if(item.qty <= 0) cart = cart.filter(i => i.id !== id);
+    saveCart();
+  };
+  window.cartRemove = function(id){
+    cart = cart.filter(i => i.id !== id);
+    saveCart();
+  };
+
+  document.querySelectorAll('.add-cart-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = btn.dataset.id;
+      const name = btn.dataset.name || 'Sản phẩm Warmie';
+      const price = parseInt(btn.dataset.price || '0', 10);
+      const emoji = btn.dataset.emoji || '🌿';
+
+      const existing = cart.find(i => i.id === id);
+      if(existing){ existing.qty += 1; }
+      else{
+        cart.push({ id, name, price, emoji, qty: 1 });
+      }
+      saveCart();
+      btn.textContent = 'Đã thêm ✓';
+      btn.classList.add('added');
+      setTimeout(() => { btn.textContent = 'Thêm vào giỏ'; btn.classList.remove('added'); }, 1200);
+    });
+  });
+
+  function openCart(){ document.getElementById('cartDrawer').classList.add('open'); document.getElementById('cartOverlay').classList.add('open'); }
+  function closeCart(){ document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('cartOverlay').classList.remove('open'); }
+  document.getElementById('cartOpenBtn').addEventListener('click', openCart);
+  document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
+  document.getElementById('cartOverlay').addEventListener('click', closeCart);
+  document.getElementById('checkoutBtn').addEventListener('click', () => {
+    if(cart.length === 0){ alert('Giỏ hàng của bạn đang trống!'); return; }
+    alert('Cảm ơn bạn đã đặt hàng tại Warmie! 🌿 Nhân viên sẽ liên hệ xác nhận sớm.');
+    cart = [];
+    saveCart();
+    closeCart();
+  });
+  renderCart();
+
+  // CHATBOT
+  const chatOpenBtn = document.getElementById('chatOpenBtn');
+  const chatCloseBtn = document.getElementById('chatCloseBtn');
+  const chatWindow = document.getElementById('chatWindow');
+  const chatBody = document.getElementById('chatBody');
+  const chatInput = document.getElementById('chatInput');
+  const chatSendBtn = document.getElementById('chatSendBtn');
+
+  chatOpenBtn.addEventListener('click', () => chatWindow.classList.add('open'));
+  chatCloseBtn.addEventListener('click', () => chatWindow.classList.remove('open'));
+
+  function sendChat(){
+    const text = chatInput.value.trim();
+    if(!text) return;
+
+    const userMsg = document.createElement('div');
+    userMsg.className = 'msg user';
+    userMsg.textContent = text;
+    chatBody.appendChild(userMsg);
+    chatInput.value = '';
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    setTimeout(() => {
+      const botMsg = document.createElement('div');
+      botMsg.className = 'msg bot';
+      botMsg.textContent = 'Cảm ơn bạn đã nhắn tin cho Warmie! Bạn có thể hỏi mình về giá, cách dùng hoặc các chương trình ưu đãi nhé 🌿';
+      chatBody.appendChild(botMsg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 800);
+  }
+
+  chatSendBtn.addEventListener('click', sendChat);
+  chatInput.addEventListener('keydown', (e) => { if(e.key === 'Enter') sendChat(); });
+</script>
+</body>
+</html>
